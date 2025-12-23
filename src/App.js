@@ -2,6 +2,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
+  const [showEvents, setShowEvents] = useState(true);
+
   const [events, setEvents] = useState([
     { title: 'THOR: LOVE AND THUNDER (2022)', id: 1 },
     { title: 'THE GRAY MAN (2022)', id: 2 },
@@ -21,8 +23,24 @@ function App() {
 
   return (
     <div className="App">
+
       {
-        events.map((event, index) => (
+        showEvents && (
+          <div>
+            <button onClick={() => setShowEvents(false)}>Hide</button>
+          </div>
+        )
+      }
+      {
+        !showEvents && (
+          <div>
+            <button onClick={() => setShowEvents(true)}>show</button>
+          </div>
+        )
+      }
+
+      {
+        showEvents && events.map((event, index) => (
           <div key={event.id}>
             <h2>{index + 1}- {event.title}</h2>
             <button onClick={() => handleClick(event.id)}>Delete</button>
