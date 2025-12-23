@@ -2,7 +2,6 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [name, setName] = useState('Mohammad');
   const [events, setEvents] = useState([
     { title: 'THOR: LOVE AND THUNDER (2022)', id: 1 },
     { title: 'THE GRAY MAN (2022)', id: 2 },
@@ -12,19 +11,21 @@ function App() {
     { title: 'HUSTLE (2022)', id: 6 }
   ]);
 
-  const handleClick = () => {
-    setName('Webeato');
-    console.log(name);
+  const handleClick = (id) => {
+    setEvents((prevEvents) => {
+      return prevEvents.filter((event) => {
+        return id !== event.id
+      })
+    })
   }
 
   return (
     <div className="App">
-      <h1>{name}</h1>
-      <button onClick={handleClick}>Change Name</button>
       {
         events.map((event, index) => (
           <div key={event.id}>
             <h2>{index + 1}- {event.title}</h2>
+            <button onClick={() => handleClick(event.id)}>Delete</button>
           </div>
         ))
       }
