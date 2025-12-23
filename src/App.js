@@ -1,23 +1,21 @@
-// import logo from './images/logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  // let name = 'Mohammad';
+  const [name, setName] = useState('Mohammad');
+
+  const handleClick = () => {
+    // name = 'Webeato';
+
+    setName('Webeato');
+    console.log(name);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src='logo.svg' className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React with Webeato
-        </a>
-      </header>
+      <h1>{name}</h1>
+      <button onClick={handleClick}>Change Name</button>
     </div>
   );
 }
