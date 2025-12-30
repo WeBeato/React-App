@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Title from './components/Title';
+import Modal from './components/Modal';
 
 function App() {
   const [showEvents, setShowEvents] = useState(true);
@@ -52,7 +53,16 @@ function App() {
         ))
       }
 
-      <Title title="My Favorite Books" subtitle="Latest Books" />
+      {/* <Modal>
+        <h2>10% off Coupon code</h2>
+        <p>Use the Code WEBEATO</p>
+      </Modal> */}
+
+      <Modal>
+        <h2>Terms and Conditions</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet delectus earum debitis nesciunt. Dolore eos, numquam aliquam similique atque doloremque nisi cupiditate labore quae, animi earum reprehenderit, odit necessitatibus autem.</p>
+        <a href="#">find out more...</a>
+      </Modal>
     </div>
   );
 }
