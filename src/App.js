@@ -2,11 +2,13 @@ import './App.css';
 import React, { useState } from 'react';
 import Title from './components/Title';
 import Modal from './components/Modal';
+import ShowModal from './components/ShowModal';
+import EventList from './components/EventList';
 
 function App() {
 
   const [showEvents, setShowEvents] = useState(true);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const [events, setEvents] = useState([
     { title: 'THOR: LOVE AND THUNDER (2022)', id: 1 },
@@ -27,6 +29,10 @@ function App() {
 
   const handleClose = () => {
     setShowModal(false);
+  }
+
+  const handleShow = () => {
+    setShowModal(true);
   }
 
   const subtitle = "Latest Movies";
@@ -51,12 +57,7 @@ function App() {
       }
 
       {
-        showEvents && events.map((event, index) => (
-          <React.Fragment key={event.id}>
-            <h2>{index + 1}- {event.title}</h2>
-            <button onClick={() => handleClick(event.id)}>Delete</button>
-          </React.Fragment>
-        ))
+        showEvents && <EventList events={events} handleClick={handleClick}/>
       }
 
       {/* <Modal>
@@ -69,6 +70,9 @@ function App() {
           <h2>Terms and Conditions</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet delectus earum debitis nesciunt. Dolore eos, numquam aliquam similique atque doloremque nisi cupiditate labore quae, animi earum reprehenderit, odit necessitatibus autem.</p>
         </Modal>}
+
+      <ShowModal handleShow={handleShow} />
+
     </div>
   );
 }
