@@ -4,7 +4,9 @@ import Title from './components/Title';
 import Modal from './components/Modal';
 
 function App() {
+
   const [showEvents, setShowEvents] = useState(true);
+  const [showModal, setShowModal] = useState(true);
 
   const [events, setEvents] = useState([
     { title: 'THOR: LOVE AND THUNDER (2022)', id: 1 },
@@ -21,6 +23,10 @@ function App() {
         return id !== event.id
       })
     })
+  }
+
+  const handleClose = () => {
+    setShowModal(false);
   }
 
   const subtitle = "Latest Movies";
@@ -58,11 +64,11 @@ function App() {
         <p>Use the Code WEBEATO</p>
       </Modal> */}
 
-      <Modal>
-        <h2>Terms and Conditions</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet delectus earum debitis nesciunt. Dolore eos, numquam aliquam similique atque doloremque nisi cupiditate labore quae, animi earum reprehenderit, odit necessitatibus autem.</p>
-        <a href="#">find out more...</a>
-      </Modal>
+      {showModal &&
+        <Modal handleClose={handleClose}>
+          <h2>Terms and Conditions</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet delectus earum debitis nesciunt. Dolore eos, numquam aliquam similique atque doloremque nisi cupiditate labore quae, animi earum reprehenderit, odit necessitatibus autem.</p>
+        </Modal>}
     </div>
   );
 }
