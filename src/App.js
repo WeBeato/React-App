@@ -22,9 +22,11 @@ function App() {
     })
   }
 
+  const subtitle = "Latest Movies";
+
   return (
     <div className="App">
-      <Title />
+      <Title title="My Favorite Movies" subtitle={subtitle} />
 
       {
         showEvents && (
@@ -49,6 +51,8 @@ function App() {
           </div>
         ))
       }
+
+      <Title title="My Favorite Books" subtitle="Latest Books" />
     </div>
   );
 }
