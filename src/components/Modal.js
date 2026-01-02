@@ -5,7 +5,7 @@ export default function Modal(props) {
         <div className="modal-backdrop">
             <div className="modal" style={{
                 border: "4px solid",
-                borderColor: "#ff4500"
+                borderColor: props.isSalesModal ? "#ff4500" : "#555"
             }}>
                 {props.children}
                 <button onClick={props.handleClose}>Close</button>
