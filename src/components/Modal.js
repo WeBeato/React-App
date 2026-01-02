@@ -8,7 +8,8 @@ export default function Modal(props) {
                 borderColor: props.isSalesModal ? "#ff4500" : "#555"
             }}>
                 {props.children}
-                <button onClick={props.handleClose}>Close</button>
+                <button onClick={props.handleClose}
+                    className={props.isSalesModal ? "sales-btn" : ""}>Close</button>
             </div>
         </div>
     )
