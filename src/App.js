@@ -57,7 +57,7 @@ function App() {
       }
 
       {
-        showEvents && <EventList events={events} handleClick={handleClick}/>
+        showEvents && <EventList events={events} handleClick={handleClick} />
       }
 
       {/* <Modal>
