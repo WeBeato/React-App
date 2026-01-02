@@ -1,5 +1,3 @@
-import './ShowModal.css';
-
 export default function ShowModal(props) {
   return (
     <>
