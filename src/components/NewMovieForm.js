@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './NewMovieForm.css';
 
-export default function NewMovieForm() {
+export default function NewMovieForm(props) {
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
 
@@ -19,7 +19,7 @@ export default function NewMovieForm() {
             id: Math.floor(Math.random() * 1000)
         }
 
-        console.log(event);
+        props.addMovie(event);
         resetForm();
     }
 
@@ -43,9 +43,6 @@ export default function NewMovieForm() {
                 />
             </label>
             <button>Submit</button>
-
-            <p>Title - {title}, Date - {date}</p>
-            <p onClick={resetForm}>Reset Form</p>
         </form>
     )
 }

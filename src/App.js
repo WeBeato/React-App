@@ -10,14 +10,7 @@ function App() {
   const [showEvents, setShowEvents] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
-  const [events, setEvents] = useState([
-    { title: 'THOR: LOVE AND THUNDER (2022)', id: 1 },
-    { title: 'THE GRAY MAN (2022)', id: 2 },
-    { title: 'THE SEA BEST (2022)', id: 3 },
-    { title: 'TOP GUN: MAVERICK (2022)', id: 4 },
-    { title: 'DOCTOR STRANGE IN THE MULTIVERSE OF MADNESS (2022)', id: 5 },
-    { title: 'HUSTLE (2022)', id: 6 }
-  ]);
+  const [events, setEvents] = useState([]);
 
   const handleClick = (id) => {
     setEvents((prevEvents) => {
@@ -27,7 +20,10 @@ function App() {
     })
   }
 
-  const handleClose = () => {
+  const addMovie = (event)=>{
+    setEvents((prevEvents)=>{
+      return [...prevEvents, event];
+    });
     setShowModal(false);
   }
 
@@ -66,8 +62,8 @@ function App() {
       </Modal> */}
 
       {showModal &&
-        <Modal handleClose={handleClose} isSalesModal={true}>
-          <NewMovieForm />
+        <Modal isSalesModal={true}>
+          <NewMovieForm addMovie={addMovie}/>
         </Modal>}
 
       <hr />
