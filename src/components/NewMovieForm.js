@@ -1,21 +1,24 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './NewMovieForm.css';
 
 export default function NewMovieForm(props) {
-    const [title, setTitle] = useState("");
-    const [date, setDate] = useState("");
+    // const [title, setTitle] = useState("");
+    // const [date, setDate] = useState("");
 
+    const title = useRef();
+    const date = useRef();
+    
     const resetForm = () => {
-        setTitle("");
-        setDate("");
+        title.current.value = "";
+        date.current.value = "";
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const event = {
-            title: title,
-            date: date,
+            title: title.current.value,
+            date: date.current.value,
             id: Math.floor(Math.random() * 1000)
         }
 
@@ -30,16 +33,14 @@ export default function NewMovieForm(props) {
                 <span>Movie Title:</span>
                 <input
                     type="text"
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
+                    ref={title}
                 />
             </label>
             <label>
                 <span>Movie Date:</span>
                 <input
                     type="date"
-                    onChange={(e) => setDate(e.target.value)}
-                    value={date}
+                    ref={date}
                 />
             </label>
             <button>Submit</button>
