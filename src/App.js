@@ -20,8 +20,8 @@ function App() {
     })
   }
 
-  const addMovie = (event)=>{
-    setEvents((prevEvents)=>{
+  const addMovie = (event) => {
+    setEvents((prevEvents) => {
       return [...prevEvents, event];
     });
     setShowModal(false);
@@ -63,7 +63,7 @@ function App() {
 
       {showModal &&
         <Modal isSalesModal={true}>
-          <NewMovieForm addMovie={addMovie}/>
+          <NewMovieForm addMovie={addMovie} />
         </Modal>}
 
       <hr />
