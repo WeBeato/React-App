@@ -2,8 +2,8 @@ import './App.css';
 import React, { useState } from 'react';
 import Title from './components/Title';
 import Modal from './components/Modal';
-import ShowModal from './components/ShowModal';
 import EventList from './components/EventList';
+import NewMovieForm from './components/NewMovieForm';
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
     setShowModal(false);
   }
 
-  const handleShow = () => {
+  const handleOpen = () => {
     setShowModal(true);
   }
 
@@ -67,11 +67,11 @@ function App() {
 
       {showModal &&
         <Modal handleClose={handleClose} isSalesModal={true}>
-          <h2>Terms and Conditions</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet delectus earum debitis nesciunt. Dolore eos, numquam aliquam similique atque doloremque nisi cupiditate labore quae, animi earum reprehenderit, odit necessitatibus autem.</p>
+          <NewMovieForm />
         </Modal>}
 
-      <ShowModal handleShow={handleShow} />
+      <hr />
+      <button onClick={handleOpen}>Add New Movie</button>
 
     </div>
   );
